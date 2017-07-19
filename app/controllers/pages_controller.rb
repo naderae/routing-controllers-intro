@@ -3,7 +3,6 @@ class PagesController < ApplicationController
 
 def welcome
   @header = "this is the welcome page"
-
 end
 
 def about
@@ -13,7 +12,7 @@ end
 
 def contest
   flash[:notice] = "Sorry, the contest has ended"
-  redirect_to "/welcome"
+  redirect_to welcome_path
 end
 
 def kitten
@@ -31,6 +30,7 @@ end
 
 def secrets
     if params[:magic_word] == 'magic'
+      redirect_to kitten_path(100)
     else
       flash[:alert] = "Sorry, you're not authorized to see that page!"
       redirect_to '/welcome'
