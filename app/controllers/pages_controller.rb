@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 
+
 def welcome
   @header = "this is the welcome page"
 
@@ -14,4 +15,16 @@ def contest
   @header = "this is the contest page"
 end
 
+def kitten
+  set_kitten_url
+end
+
+def kittens
+  set_kitten_url
+end
+
+def set_kitten_url
+  requested_size = params[:size]
+  @kitten_url = "http://lorempixel.com/#{requested_size}/#{requested_size}/cats"
+end
 end
